@@ -1,42 +1,40 @@
 # Tumblr_Scrapper
-Script de web scrapping que usa Scrapy y Selenium para obtener nombres de usuarios texto de los post principales y su correspondiente url de un blog de tumblr.
 
-#################################################
-#------------------INSTALACION------------------#
-#################################################
+Este es un script de web scraping que utiliza Scrapy y Selenium para obtener nombres de usuarios, texto de los posts principales y sus correspondientes URLs de un blog de Tumblr.
 
-1) Descargar (clonar) el archivo del repositorio de github
-2) Crea un entorno virtual y activalo
-3) Ahora instala los paquetes del archivo requirements.txt con el comando:
+## Instalación
+
+1. Descarga (clona) el archivo del repositorio de GitHub.
+
+2. Crea un entorno virtual y actívalo.
+
+3. Instala los paquetes del archivo `requirements.txt` usando el siguiente comando:
 
 	pip install -r requirements.txt
 
-4) Ahora desplazate hacia la carpeta tumblr_scrapper que contiene el spider de scrapy
+4. Ve a la carpeta `tumblr_scrapper` que contiene el spider de Scrapy:
 
-	cd \tumblr_scrapper\tumblr_scrapper
+ 	cd tumblr_scrapper/tumblr_scrapper
 
-5) Para ejecutar el script, necesitas introducir un comando en la terminal del siguiente modo:
+5. Para ejecutar el script, necesitas introducir un comando en la terminal de la siguiente manera:
 
 	scrapy crawl tumblr -a email="email" -a password= -a url='url' -a iterations=n -o output_name.jsonl
-	donde:
-        # email: Es el correo electronico asociado a nuestra cuenta de tumblr
-        # password: Es la contraseña asociada al correo de nuestra cuenta de tumblr
-        # url: Es la url del blog de tumblr que se desea scrapear
-        # iterations: Es la cantidad de contenido que cargara por cada scroll down para Scrapear (Tumblr carga contenido de forma dinamica, 	  para ello hay que hacer scroll down a atraves del blog)
-	# output_name: Nombre del archivo jsonl o csv 
 
+Donde:
 
-#################################################
-#----------------CONSIDERACIONES----------------#
-#################################################
+- `email`: Es el correo electrónico asociado a nuestra cuenta de Tumblr.
+- `password`: Es la contraseña asociada al correo de nuestra cuenta de Tumblr.
+- `url`: Es la URL del blog de Tumblr que se desea scrapear.
+- `iterations`: Es la cantidad de contenido que se cargará por cada scroll down para el scraping (Tumblr carga contenido de forma dinámica, por lo que hay que hacer scroll down a través del blog).
+- `output_name`: Nombre del archivo JSONL o CSV que contendrá los datos scraped.
 
-1) La velocidad de este web_scrapping dependera de cuantas iteraciones se use, por lo general 30 iteraciones tardaran 20 minutos.
-   Esto se debe al uso de selenium por la naturaleza dinamica de la pagina, la cual solo carga los links de las publicaciones cuando
-   interactuas con los botones.
+## Consideraciones
 
-2) No es posible scrapear todo tipo de blog de tumblr, solo funciona con blogs de estilo estandar. Una buena forma de diferenciarlo es en
-   base al url como s emuestra a continuacion:
+- La velocidad de este web scraping dependerá de cuántas iteraciones se utilicen. Por lo general, 30 iteraciones tardarán aproximadamente 20 minutos. Esto se debe al uso de Selenium debido a la naturaleza dinámica de la página, que solo carga los enlaces de las publicaciones cuando interactúas con los botones.
 
-   https://www.tumblr.com/hearttattack (Pagina estandar - SI se puede Scrapear)
+- No es posible scrapear todo tipo de blog de Tumblr, solo funciona con blogs de estilo estándar. Una buena forma de diferenciarlo es basándose en el URL, como se muestra a continuación:
 
-   https://sleep-sounds-nice-rn.tumblr.com (Pagina personalizada - NO se puede Scrapear)
+- `https://www.tumblr.com/hearttattack` (Página estándar - SÍ se puede scrapear)
+- `https://sleep-sounds-nice-rn.tumblr.com` (Página personalizada - NO se puede scrapear)
+
+Al seguir estas instrucciones, podrás utilizar el script para obtener datos de un blog de Tumblr específico. Recuerda siempre tener en cuenta las consideraciones mencionadas y respetar los términos de uso de la plataforma al realizar scraping de datos.
