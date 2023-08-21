@@ -10,15 +10,30 @@ Este es un script de web scraping que utiliza Scrapy y Selenium para obtener nom
 
 3. Instala los paquetes del archivo `requirements.txt` usando el siguiente comando:
 
+```
 	pip install -r requirements.txt
+```
 
 4. Ve a la carpeta `tumblr_scrapper` que contiene el spider de Scrapy:
 
+```
  	cd tumblr_scrapper/tumblr_scrapper
+```
 
-5. Para ejecutar el script, necesitas introducir un comando en la terminal de la siguiente manera:
+5. Actualiza el driver de Chrome de acuerdo a tu version del navegador:
 
-	scrapy crawl tumblr -a email="email" -a password= -a url='url' -a iterations=n -o output_name.jsonl
+ - Para ello deberas ir al siguiente sitio web y descargar la version que coincida o que más se aproxime al tuyo:
+   
+   - `https://googlechromelabs.github.io/chrome-for-testing/` Si tu version de Google Chrome es mayor o igual a 115
+   - `https://chromedriver.chromium.org/downloads` Si tu version de Google Chrome es anterior a 115
+     
+ - Ahora en la carpeta `spider`, remplaza el archivo `chromedriver.exe` con el que acabas de descargar.
+   	
+6. Para ejecutar el script, necesitas introducir un comando en la terminal de la siguiente manera:
+
+```
+	scrapy crawl tumblr -a email="email" -a password="password" -a url='url' -a iterations=n -o output_name.jsonl
+```
 
 Donde:
 
@@ -37,4 +52,8 @@ Donde:
 - `https://www.tumblr.com/hearttattack` (Página estándar - SÍ se puede scrapear)
 - `https://sleep-sounds-nice-rn.tumblr.com` (Página personalizada - NO se puede scrapear)
 
-Al seguir estas instrucciones, podrás utilizar el script para obtener datos de un blog de Tumblr específico. Recuerda siempre tener en cuenta las consideraciones mencionadas y respetar los términos de uso de la plataforma al realizar scraping de datos.
+- En caso de ya tener instalado la libreria de `Selenium` en tu equipo con anterioridad. Dirigete a una ruta similar a esta en tu equipo y remplaza el archivo descargado en la carpeta de la version de tu driver actual:
+
+```
+	C:\Users\[User_name]\.cache\selenium\chromedriver\win32
+```	
